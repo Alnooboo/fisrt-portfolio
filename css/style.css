@@ -1,0 +1,1185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    /* target all elemnt in the page*/
+
+    margin: 0;
+    /* Sets the margin (space outside the element) to 0. This removes any default margin that may be applied to elements. */
+
+    padding: 0;
+    /* Sets the padding (space inside the element) to 0. This removes any default padding that may be applied to elements. */
+
+    box-sizing: border-box;
+    /* This property changes the box model for elements
+                            to include the padding and border within the specified width and height.
+                            It ensures that the specified width and height of an element includes the padding and border,
+                            instead of being added to them. */
+
+    text-decoration: none;
+    /* Removes any text decoration, such as underlines, from text elements. */
+
+    border: none;
+    /* Removes any borders from elements. */
+    /*(The border is the line or area that surrounds an element,
+    separating it from other elements or its surroundings. By setting it to none,
+    there will be no visible border around any element.)*/
+
+    outline: none;
+    /* Removes any outline that is applied when an element is focused (e.g., when clicked). */
+
+    scroll-behavior: smooth;
+    /* Applies smooth scrolling behavior to the scrolling of elements, such as anchor links within a page.
+                                This provides a smooth transition effect when scrolling to a specific section of the page. */
+
+    font-family: 'Poppins', sans-serif;
+    /* Sets the font family for text elements to 'Poppins',
+                                        which is a specific font, and if it's not available,
+                                        it falls back to the default sans-serif font. */
+
+}
+
+:root {
+    /* setting the colors that will be used */
+    --bg-color: #081b29;
+    --second-bg-color: #112e42;
+    --text-color: #ededed;
+    --main-color: #00abf0;
+}
+
+html {
+    font-size: 62.5%;
+    /* Sets the font size of the HTML element to 62.5% of the default font size.
+                        By default, the font size of the HTML element is 16 pixels,
+                        so this line sets it to 10 pixels (62.5% of 16 pixels). */
+
+    overflow-x: hidden;
+    /* This property specifies how to handle the content that overflows the horizontal space of the HTML element.
+                        In this case, it is set to "hidden," which means any content that exceeds
+                        the horizontal space of the HTML element will be clipped and not visible.
+                        This can be useful to prevent horizontal scrolling in cases where content exceeds the available width. */
+    /*(the horizontal space refers to the maximum width an element can occupy within its container or parent element.)*/
+
+
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header {
+    position: fixed;
+    /* A fixed position element is positioned relative to the viewport and remains in the same position
+                        even when the page is scrolled. In this case,
+                        the header element will stay fixed at the top of the viewport. */
+
+    top: 0;
+    /* This property sets the distance between the top edge of the element and the top edge of its containing element.
+                By setting it to 0, the header element will be positioned flush against the top of the containing element
+                (in this case, the viewport). */
+
+    left: 0;
+    /* This property sets the distance between the left edge of the element and the left edge of its containing element.
+                By setting it to 0, the header element will be positioned flush against the left side of the containing element
+                (viewport). */
+
+    width: 100%;
+    /* This property sets the width of the element to 100% of its containing element's width.
+                    In this case, the header element will extend across the entire width of the containing element
+                    (viewport). */
+
+    padding: 2rem 9%;
+    /* This property sets the padding (space inside the element) for the header.
+                        The value 2rem 9% means there will be 2 times the value of the font size as padding
+                        at the top and bottom, and the padding on the left and right will be 9% of the width
+                        of the containing element. */
+
+    background: transparent;
+
+    display: flex;
+    /* This property sets the display mode of the header element to "flex".
+                        Flexbox is a layout model that allows flexible alignment
+                        and distribution of elements within a container. */
+
+    justify-content: space-between;
+    /* This property determines how the flex items (child elements) are spaced horizontally
+                                    within the flex container. By setting it to "space-between", the space is distributed evenly
+                                    between the flex items, pushing them to the left and right edges of the container.
+                                    (in this case devided the "a" and "nav" by /50 and inside the nap to /5)*/
+
+    align-items: center;
+    /* This property determines how the flex items are aligned vertically within the flex container.
+                            By setting it to "center", the flex items will be vertically centered within the container. */
+
+    z-index: 100;
+    /* This property sets the stacking order of the element in relation to other elements.
+                    In this case, the header element will have a z-index of 100,
+                    which means it will be positioned above elements with lower z-index values. */
+
+    transition: .3s;
+}
+
+.header.sticky {
+    background: var(--bg-color);
+}
+
+.logo {
+    position: relative;
+    font-size: 2.5rem;
+    /* The rem unit is used, which stands for "root em" and is relative to the font size of the root element
+                        (usually the <html> element). This means that the font size of the logo element will be
+                        2.5 times the font size of the root element. */
+
+    color: var(--text-color);
+
+    font-weight: 600;
+    /* This property sets the font weight of the text within the logo element to 600,
+                        which corresponds to a semi-bold or bold font weight.
+                        The font weight represents the thickness or boldness of the characters in the text. */
+
+}
+
+.navbar{
+    position: relative;/*it allows you to control their position relative to their normal position in the document flow,
+                        while still maintaining their space within the layout of the page.*/
+}
+
+.navbar a {
+    font-size: 1.7rem;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 3.5rem;
+    transition: 0s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+}
+
+#menu-icon {
+    position: relative;
+    font-size: 3.6rem;
+    color: var(--text-color);
+    cursor: pointer;
+    /* make it clickable */
+
+    display: none;
+    /*hides the element from the display. */
+}
+
+section {
+    min-height: 100vh;
+    /* This property sets the minimum height of the section to 100% of the viewport height (vh).
+                        The vh unit represents a percentage of the viewport height,
+                        so 100vh ensures that the section will take up the full height of the viewport,
+                        regardless of its content. This can be useful for creating full-screen sections
+                        or sections that span the entire viewport height.*/
+
+    padding: 10rem 9% 2rem;
+    /*This property sets the padding (space inside the section) for the top, right, bottom, and left sides
+                            of the section. The values specified are 10rem for the top padding, 9% for the right and left padding
+                            (relative to the width of the containing element), and 2rem for the bottom padding.
+                            This creates space around the content within the section,
+                            allowing for proper spacing and visual separation.*/
+
+}
+
+.home {
+    display: flex;
+    /* Flexbox is a CSS layout model that provides a flexible way to arrange and align elements within a container.
+                    By setting the display property to "flex",
+                    the elements inside the "home" container can be positioned and aligned using flexbox properties. */
+    align-items: center;
+    padding: 0 9%;
+    background: url('C:/Users/habee/Desktop/webpage/portfolio/images/home.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-content {
+    max-width: 60rem;
+    z-index: 99;
+}
+
+.home-content h1 {
+    position: relative;
+    display: inline-block;
+    font-size: 5.6rem;
+    font-weight: 700;
+    /* This property sets the font weight of the text within the elements to 700
+                        The font weight determines the thickness or boldness of the characters in the text.*/
+
+    line-height: 1.3;
+    /* This property sets the line height of the text to 1.3 times the height of a single line. */
+}
+
+.home-content h1 span {
+    color: var(--text-color);
+}
+
+.home-content .text-animate {
+    position: relative;
+    /* The position property allows you to control the placement of elements on the web page.
+                        With a relative position, elements can be moved or positioned relative
+                        to their default position within the document flow. */
+
+    width: 33.3rem;
+    /* This property sets the width of the elements with the "text-animate" class to 32.8 times the default font size. */
+}
+
+.home-content .text-animate h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: transparent;
+    /* This makes the text invisible and transparent, effectively hiding it from view. */
+    -webkit-text-stroke: .7px var(--main-color);
+    /* The stroke creates an outline around the text. The value .7px specifies the width of the stroke in pixels, and the color*/
+
+    background-image: linear-gradient(var(--main-color), var(--main-color));
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-position: -33rem 0;
+}
+
+.home.show-animate .home-content .text-animate h3{
+    animation: homeBgText 6s linear infinite;
+    animation-delay: 2s;
+}
+
+/*line movement*/
+.home-content .text-animate h3::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    border-right: 2px solid var(--main-color);
+    z-index: -1;
+    
+}
+
+
+.home.show-animate .home-content .text-animate h3::before{
+    animation: homeCursorText 6s linear infinite;
+    animation-delay: 2s;
+}
+
+.home-content p {
+    position: relative;
+    font-size: 1.6rem;
+    margin: 2rem 0 4rem;
+    /* This property sets the margin (space outside the paragraph element) for the top, right, bottom, and left sides of the <p> elements */
+}
+
+.btn-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 34.5rem;
+    height: 5rem;
+}
+
+/*explanation is down*/
+.btn-box .btn {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 100%;
+    background-color: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: 0.8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+}
+
+
+.btn-box .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.btn-box .btn:hover::before {
+    width: 100%;
+}
+
+/*to change the secon button:*/
+.btn-box .btn:hover {
+    color: var(--main-color);
+}
+
+.btn-box .btn:nth-child(2) {
+    background-color: transparent;
+    color: var(--main-color);
+
+}
+
+.btn-box .btn:nth-child(2):hover {
+    color: var(--bg-color);
+}
+
+.btn-box .btn:nth-child(2)::before {
+    background: var(--main-color);
+}
+
+
+/*
+1).btn-box .btn: we set the values for the btn class that are inside the .btn-box class (we added the overflow to hide the outside changes= fix mistakes when we added the 'before' button)
+
+2).btn-box .btn::before: we made a another btn under our real button set its values (we made it under with z-index tag)
+
+3).btn-box .btn:hover::before: we added a transition to it when its hovered
+
+4).btn-box .btn:nth-child(2): we are editing the 2nd child(the 2nd button) by making its color transparent and setting the text color to the main color
+
+5).btn-box .btn:nth-child(2):hover: we added a color effect when its hoverd
+
+6).btn-box .btn:nth-child(2)::before:we added a 2nd button under the 2nd button with main color to the background
+
+7).btn-box .btn:hover: we are showing the main color to the both button when its hoverd
+
+8)in general what is happened is this:
+    we set the btn propetities => we added another btn(before) we added to both of them a transition .5s => we added a hover affect(to before) to both of them
+    (in this case both of them will have same effect) => then we want to add another transition effect to the another btn so we selected the 2nd button
+    made its background transparent(شفاف) (showing the background color bcz of the 'before' btn...) and setting the text color to the main color
+    => we added a hover affect to the 2 btns that shows the main color => we added a hover affect that shows the background color to the 2nd button
+    => we changed the background color of the 2nd before button to the main color
+
+*/
+
+
+.home-sci {
+    position: absolute;
+    bottom: 4rem;
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home-sci a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 20px;
+    color: var(--main-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: .5s;
+    /*added a smooth text transtion effect*/
+}
+
+.home-sci a:hover {
+    color: var(--bg-color);
+    /*changed the text color when hoverd*/
+}
+
+.home-sci a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--main-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-sci a:hover::before {
+    width: 100%;
+}
+
+.home-imgHover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45%;
+    height: 100%;
+    background-color: transparent;
+    /*border: 2px solid red;*/
+    /*to see the range ;)*/
+    transition: 3s;
+}
+
+.home-imgHover:hover {
+    background: var(--bg-color);
+    opacity: .8;
+}
+
+/*about section:*/
+
+.about {
+    display: flex;
+    justify-content: center;
+    /* the content will be aligned along the horizontal axis, ensuring it appears in the middle horizontally.*/
+
+    align-items: center;
+    /* the conten will be aligned along the vertical axis, ensuring it appears in the middle vertically.*/
+
+    flex-direction: column;
+    /*the elements are stacked vertically, with each element positioned below the previous one which creates a vertical layout.*/
+
+    gap: 2rem;
+    /*  spacing between the flex items */
+
+    background-color: var(--second-bg-color);
+
+    padding-bottom: 6rem;
+    /* set the padding (space inside the container) for the bottom side container to 6rem.*/
+}
+
+.heading {
+    position: relative;
+    
+    font-size: 5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    /*center the text*/
+}
+
+span {
+    color: var(--main-color);
+}
+
+/*we are eediting the img div not the img itself!*/
+.about-img {
+    position: relative;
+    /*The position property allows you to control the placement of elements on the web page.*/
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    /*This creates a circular shape for the element or image by rounding the corners equally.*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-img img {
+    width: 90%;
+    /*  This property sets the width of the <img> elements to 90% of their container's width. */
+    border-radius: 50%;
+    border: .2rem solid var(--main-color);
+}
+
+.about-img .cirle-spin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border-top: .2rem solid var(--second-bg-color);
+    border-bottom: .2rem solid var(--second-bg-color);
+    border-left: .2rem solid var(--main-color);
+    border-right: .2rem solid var(--main-color);
+    animation: aboutSpinner 8s linear infinite;
+}
+
+.about-content {
+    text-align: center;
+}
+
+.about-content h3 {
+    position: relative;
+    display: inline-block;
+    font-size: 2.6rem;
+}
+
+.about-content p {
+    position: relative;
+    display: inline-block;
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+    /*top 2rem, left/right 0, buttom 3rem*/
+}
+
+/*The following properties and values are applied to elements with both the "btn-box" and "btns" classes:
+    elements that have the 2 classes togather
+*/
+.btn-box.btns {
+    display: inline-block;
+    /*make it as a line (gets line properities)*/
+    width: 15rem;
+}
+
+.btn-box.btns a::before {
+    background: var(--second-bg-color);
+}
+
+/*education section:*/
+
+.education {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /*because it will be shown as table*/
+    min-height: auto;
+    padding-bottom: 5rem;
+}
+
+.education .education-row {
+    display: flex;
+    flex-wrap: wrap;
+    /*This property specifies whether the flex items should wrap onto multiple lines if they exceed the width of the flex container.
+                        Setting it to wrap allows the items to wrap onto a new line if necessary.*/
+
+    gap: 5rem;
+    /*This property sets the gap, or spacing, between the flex items*/
+}
+
+.education-row .education-column {
+    flex: 1 1 40rem;
+    /*This property is a shorthand for three flex-related properties: flex-grow, flex-shrink, and flex-basis:
+
+                    flex-grow: 1;: This value defines how much the flex item can grow relative to other flex items within the same flex container.
+                    A value of 1 means it can grow to fill the available space.
+                    
+                    flex-shrink: 1;: This value defines how much the flex item can shrink relative to other flex items within the same flex container.
+                    A value of 1 means it can shrink if necessary to fit into the available space.
+                    
+                    flex-basis: 40rem;: This value sets the initial size of the flex item before it stretches or shrinks.
+                    In this case, it has a basis of 40rem, which means it will have an initial width of 40rem.*/
+}
+
+.education-column .title {
+    position: relative;
+    display: inline-block;
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem 2rem;
+    /* This property sets the margins of the elements with the .title class. The values represent the top, right, bottom, and left margins, respectively. */
+}
+
+.education-column .education-box {
+    position: relative;
+    display: inline-block;
+    border-left: .2rem solid var(--main-color);
+}
+
+.education-box .education-content {
+    position: relative;
+    /*By setting it to relative, the elements will be positioned relative to their normal position within the document flow.*/
+    padding-left: 2rem;
+}
+
+.education-box .education-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -1.1rem;
+    width: 2rem;
+    height: 2rem;
+    background: var(--main-color);
+    border-radius: 50%;
+}
+
+.education-content .content {
+    position: relative;
+    padding: 1.5rem;
+    border: .2rem solid var(--main-color);
+    border-radius: .6rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+
+.education-content .content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--second-bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.education-content .content:hover::before {
+    width: 100%;
+}
+
+.education-content .content .year {
+    font-size: 1.5rem;
+    color: var(--main-color);
+    padding-bottom: .5rem;
+}
+
+.education-content .content .year i {
+    padding-right: .5rem;
+}
+
+.education-content .content h3 {
+    font-size: 2rem;
+}
+
+.education-content .content p {
+    font-size: 1.6rem;
+    padding-top: .5rem;
+}
+
+/*skills section:*/
+.skills {
+    min-height: auto;
+    padding-bottom: 7rem;
+    background: var(--second-bg-color);
+}
+
+.skills h2{
+display: inline-block;
+left: 50%;
+transform: translateX(-50%);/*it transform function to horizontally shift the elements by -50% of their own width.
+                            This effectively centers the elements within their parent container.*/
+}
+
+.skills .skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    /* This property specifies that the flex items should wrap to the next line when they exceed the width of the container. */
+
+    gap: 5rem;
+    /*This property defines the spacing between the flex items.*/
+}
+
+.skills-row .skills-column {
+    flex: 1 1 40rem;
+}
+
+.skills-column .title {
+    position: relative;
+    display: inline-block;
+    font-size: 2.5rem;
+    margin: 0 0 1.5rem;
+}
+
+.skills-column .skills-box{
+    position: relative;
+}
+
+.skills-box .skills-content {
+    position: relative;
+    border: .2rem solid var(--main-color);
+    border-radius: .6rem;
+    padding: .5rem 1.5rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+
+.skills-box .skills-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.skills-box .skills-content:hover::before {
+    width: 100%;
+}
+
+.skills-content .progress {
+    padding: 1rem 0;
+    /* The value 1rem specifies the padding size in the vertical direction, and 0 specifies no padding in the horizontal direction. */
+}
+
+.skills-content .progress h3 {
+    font-size: 1.7rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.skills-content .progress h3 span {
+    color: var(--text-color);
+}
+
+
+.skills-content .progress .bar {
+    height: 2.5rem;
+    border-radius: .6rem;
+    border: .2rem solid var(--main-color);
+    padding: .5rem;
+    margin: 1rem 0;
+}
+
+.skills-content .progress .bar span {
+    display: block;
+    height: 100%;
+    border-radius: .3rem;
+    background: var(--main-color);
+}
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(1) .bar span {
+    width: 90%;
+}
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(2) .bar span {
+    width: 80%;
+}
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(3) .bar span {
+    width: 65%;
+}
+
+.skills-column:nth-child(1) .skills-content .progress:nth-child(4) .bar span {
+    width: 75%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(1) .bar span {
+    width: 95%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(2) .bar span {
+    width: 67%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(3) .bar span {
+    width: 85%;
+}
+
+.skills-column:nth-child(2) .skills-content .progress:nth-child(4) .bar span {
+    width: 60%;
+}
+
+.contact {
+    min-height: auto;
+    padding-bottom: 7rem;
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: 0 auto;
+    /*this property sets the top and bottom margin to 0 and the left and right margin to auto. This centers */
+    text-align: center;
+}
+
+.contact h2{
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.contact form .input-box {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box .input-field {
+    position: relative;
+    width: 49%;
+    margin: .8rem 0;
+}
+
+.contact form .input-box .input-field input,
+.contact form .textarea-field textarea {
+    width: 100%;
+    height: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: transparent;
+    border-radius: .6rem;
+    border: .2rem solid var(--main-color);
+}
+
+.contact form .input-box .input-field input::placeholder,
+.contact form .textarea-field textarea::placeholder {
+    color: var(--text-color);
+}
+
+.contact form .focus {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: var(--second-bg-color);
+    border-radius: .6rem;
+    z-index: -1;
+    transition: .5s;
+}
+
+.contact form .input-box .input-field input:focus~.focus,
+.contact form .input-box .input-field input:hover~.focus,
+.contact form .textarea-field textarea:focus~.focus,
+.contact form .textarea-field textarea:hover~.focus {
+    width: 100%;
+}
+
+
+.contact form .textarea-field {
+    position: relative;
+    margin: .8rem 0 2.7rem;
+    display: flex;
+}
+
+.contact form .textarea-field textarea {
+    resize: none;
+}
+
+.contact form .btn-box.btns .btn {
+    cursor: pointer;
+    /*When users hover over these elements, the cursor will change to a hand icon, indicating that they can interact with the element.*/
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background: var(--second-bg-color);
+}
+
+.footer-text,
+.footer-icontTop{
+    position: relative;
+    
+}
+
+.footer .footer-text {
+    font-size: 1.6rem;
+}
+
+.footer .footer-icontTop a {
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: var(--main-color);
+    border: .2rem solid var(--main-color);
+    border-radius: .6rem;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.footer .footer-icontTop a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: var(--second-bg-color);
+    z-index: -1;
+    transition: .5s;
+}
+
+.footer .footer-icontTop a:hover::before {
+    height: 100%;
+}
+
+.footer .footer-icontTop a i {
+    font-size: 2.4rem;
+    color: var(--bg-color);
+    transition: .5s;
+}
+
+.footer .footer-icontTop a:hover i {
+    color: var(--main-color);
+}
+
+/*Animation relod and scroll*/
+.animate{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    z-index: 98;
+}
+
+.animate.home-img{
+    width: 50%;
+}
+
+
+
+.logo .animate,
+.navbar .animate,
+#menu-icon .animate,
+.home.show-animate .animate{
+    animation: showRight 1s ease forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+
+.animate.scroll{
+    transition: 1s ease;
+    transition-delay: calc(.1s / var(--i));
+    animation: none;
+}
+
+section:nth-child(odd) .animate.scroll,
+footer .animate.scroll{
+    background: var(--second-bg-color);
+}
+
+.education .education-box .animate.scroll{
+    width: 105%;
+}
+
+.about.show-animate .animate.scroll,
+.education.show-animate .animate.scroll,
+.skills.show-animate .animate.scroll,
+.contact.show-animate .animate.scroll,
+.footer.show-animate .animate.scroll{
+    
+    transition-delay: calc(.3s * var(--i));
+    width: 0;
+}
+
+/*break points*/
+
+@media (max-width:1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media (max-width:991px) {
+    .header {
+        padding: 2rem 4%;
+    }
+
+    section {
+        padding: 10rem 4% 2rem;
+    }
+
+    .home {
+        padding: 0 4%;
+    }
+
+    .footer {
+        padding: 2rem 4%;
+    }
+
+}
+@media (max-width:850px){
+    .animate.home-img{
+        width: 55%;
+    }
+}
+
+@media (max-width:768px) {
+    .header {
+        background: var(--bg-color);
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    /*هون انا كأني فصلت النافبار عن الهيدر فصار عبارة عن مستطيل لحالو*/
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        padding: 1rem 4%;
+        background: var(--bg-color);
+        /*جلعصة*/
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        /*It creates a shadow that is 0 pixels horizontally, 0.5rem vertically,
+                                                        with a blur radius of 1rem, and the color defined by rgba(0, 0, 0, .2) (black with 20% opacity).*/
+        z-index: 1;
+        transition: .25s ease;
+        transition-delay: .1s;
+        /*introduces a delay of 0.25 seconds before the transition starts.
+                                This ensures that the navbar does not immediately appear when the 'active' class is added.*/
+        /*add 1s to understand ;)*/
+    }
+
+    .navbar.active {
+        left: 0;
+        transition-delay: 0s;
+        /* removes the transition delay, causing the transition to start immediately when the 'active' class is added.*/
+    }
+
+    .navbar .active-nav {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        z-index: -1;
+        transition: .25s ease;
+        transition-delay: 0s;
+    }
+
+    .navbar.active .active-nav {
+        left: 0;
+        transition-delay: 0s;
+    }
+
+    .navbar a {
+        display: block;
+        /*anchor elements are inline-level elements, but by setting them to block,
+                        they will occupy the full width of their parent container and allow for setting height, width, margins, and padding.*/
+        font-size: 2rem;
+        margin: 3rem 0;
+
+        transform: translateX(-20rem);
+        transition: .25s ease;
+        transition-delay: 0s;
+    }
+
+    .navbar.active a {
+        transform: translateX(0);
+        transition-delay: 0s;
+    }
+
+    .home-imgHover {
+        pointer-events: none;
+        background: var(--bg-color);
+        opacity: .6;
+    }
+
+}
+
+
+@media (max-width:520px) {
+    html {
+
+        font-size: 50%;
+    }
+
+    .home-content h1 {
+        display: flex;
+        flex-direction: column;
+        /*  sets the main axis to be vertical, causing the child elements within the <h1> to be arranged in a column. */
+    }
+
+    .home-sci {
+        width: 160px;
+    }
+
+    .home-sci a {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+
+@media (max-width:462px) {
+    .home-content h1 {
+        font-size: 5.2rem;
+    }
+
+    .education{
+        padding: 10rem 4% 5rem 5%;
+    }
+
+    .contact form .input-box .input-field{
+        width: 100%;
+    }
+
+    .footer{
+        flex-direction: column-reverse;/*sets the direction of the flex container to be vertical, and it reverses the order of its flex items along the vertical axis.*/
+    }
+    
+    .footer p{
+        margin-top: 2rem;
+        text-align: center;
+    }
+}
+
+@media (max-width:371px){
+    .home{
+        justify-content: center;
+    }
+
+    .home-content{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-content h1{
+        font-size: 5rem;
+    }
+}
+
+
+/*Key frames animations*/
+
+/*adds word color motion*/
+@keyframes homeBgText{
+    0%,
+    10%,
+    100%{
+        background-position: -33rem 0;
+    }
+
+    65%,
+    85%{
+        background-position: 0 0;
+    }
+}
+
+
+/*adds line motion*/
+@keyframes homeCursorText{
+    0%,
+    10%,
+    100%{
+        width: 0;
+    }
+
+    65%,
+    78%,
+    85%{
+        width: 100%;
+        opacity: 1;
+    }
+    
+    75%,
+    81%{
+        opacity: 0;
+    }
+}
+
+@keyframes aboutSpinner {
+    100%{
+        
+    transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes showRight {
+    100%{
+        width: 0;
+    }
+}
